@@ -15,9 +15,9 @@ UrlToPng.configure do |config|
 end
 
 UrlToPng.convert("http://google.com", viewport: "1024x800") #=> a Hashie::Mash
+```
 
 There are all kinds of options, and you can use your own Faraday middleware. I'm sure I'll get around to documenting it.
-```
 
 ## Tests
 

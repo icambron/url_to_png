@@ -21,4 +21,4 @@ There are all kinds of options, and you can use your own Faraday middleware. I'm
 
 ## Tests
 
-There are none! This is not like some philisophical thing; it's just that I didn't bother. So maybe all kinds of things are broken. Who knows?
+There are none! This is not like some philosophical thing; it's just that I didn't bother. So maybe all kinds of things are broken. Who knows?

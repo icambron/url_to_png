@@ -30,7 +30,7 @@ module UrlToPng
 
 
     def defaults
-      Configuration.from(base_url: 'api.url2png.com')
+      Configuration.new(base_url: 'api.url2png.com')
     end
 
     def connection

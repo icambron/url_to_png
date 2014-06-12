@@ -1,5 +1,3 @@
-require 'faraday'
-
 module UrlToPng
   class Configuration < Hashie::Dash
     property  :api_key

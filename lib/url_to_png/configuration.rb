@@ -1,25 +1,11 @@
 module UrlToPng
-  class Configuration < Hashie::Dash
-    property  :api_key
-    property  :base_url
-    property  :connection, default: {}
-    property  :custom_css
-    property  :fullpage
-    property  :say_cheese
-    property  :secret_key
-    property  :thumbnail_max_width
-    property  :unique
-    property  :user_agent
-    property  :viewport
+  class Configuration < Hashie::Mash
 
-    QUERY_OPTIONS = [
-      :custom_css,
-      :fullpage,
-      :say_cheese,
-      :thumbnail_max_width,
-      :unique,
-      :user_agent,
-      :viewport
+    NON_QUERY_OPTIONS = [
+      :secret_key,
+      :api_key,
+      :base_url,
+      :connection
     ]
 
     def configured?
@@ -27,7 +13,7 @@ module UrlToPng
     end
 
     def query_hash
-      select{|key, value| QUERY_OPTIONS.include?(key)}
+      select{|key, value| !NON_QUERY_OPTIONS.include?(key)}
     end
 
   end

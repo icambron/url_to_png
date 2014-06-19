@@ -22,6 +22,7 @@ module UrlToPng
       token = Digest::MD5.hexdigest(uri.query + @options.secret_key)
       uri.path = "/v6/#{@options.api_key}/#{token}/json/"
       response = connection.get(uri.to_s)
+      raise "Internal error" unless response.success?
       return Result.new(response.body)
     end
 
@@ -32,7 +33,7 @@ module UrlToPng
     end
 
     def connection
-      @connection ||= Faraday.new("https://#{@options.base_url}", @options.connection) do |builder|
+      @connection ||= Faraday.new("https://#{@options.base_url}", @options.connection || {}) do |builder|
         builder.adapter  :net_http
         builder.response :json, content_type: /\bjson$/
       end
